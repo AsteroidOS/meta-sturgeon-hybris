@@ -1,0 +1,25 @@
+From 9cc549a0dc2e3a4b47413a9814365fc0fb15f05b Mon Sep 17 00:00:00 2001
+From: MagneFire <IDaNLContact@gmail.com>
+Date: Sun, 5 Apr 2020 00:03:00 +0200
+Subject: [PATCH 2/2] HybrisHrmAdaptor: Set default delay. This fixes a problem
+ where when the heart rate monitor wouldn't start reading when restarted.
+
+---
+ adaptors/hybrishrmadaptor/hybrishrmadaptor.cpp | 1 ++
+ 1 file changed, 1 insertions(+)
+
+diff --git a/adaptors/hybrishrmadaptor/hybrishrmadaptor.cpp b/adaptors/hybrishrmadaptor/hybrishrmadaptor.cpp
+index a8a9f30..f66f617 100644
+--- a/adaptors/hybrishrmadaptor/hybrishrmadaptor.cpp
++++ b/adaptors/hybrishrmadaptor/hybrishrmadaptor.cpp
+@@ -43,6 +43,7 @@ HybrisHrmAdaptor::HybrisHrmAdaptor(const QString& id) :
+     	sensordLogW() << "Path does not exists: " << powerStatePath;
+     	powerStatePath.clear();
+     }
++    setInterval(200, 0);
+ }
+ 
+ HybrisHrmAdaptor::~HybrisHrmAdaptor()
+-- 
+2.26.0
+

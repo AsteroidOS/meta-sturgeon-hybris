@@ -1,0 +1,25 @@
+From 9d2480e5e2fea8e3a4a19d48b5006a87162a6800 Mon Sep 17 00:00:00 2001
+From: MagneFire <IDaNLContact@gmail.com>
+Date: Sat, 4 Apr 2020 22:42:31 +0200
+Subject: [PATCH 1/2] HybrisWristGestureAdaptor: Set default delay. This fixes
+ a problem where when the wrist gesture sensor wouldn't fire when restarted.
+
+---
+ adaptors/hybriswristgestureadaptor/hybriswristgestureadaptor.cpp    | 1 ++
+ 1 file changed, 1 insertions(+)
+
+diff --git a/adaptors/hybriswristgestureadaptor/hybriswristgestureadaptor.cpp b/adaptors/hybriswristgestureadaptor/hybriswristgestureadaptor.cpp
+index b84b818..fec268b 100644
+--- a/adaptors/hybriswristgestureadaptor/hybriswristgestureadaptor.cpp
++++ b/adaptors/hybriswristgestureadaptor/hybriswristgestureadaptor.cpp
+@@ -45,6 +45,7 @@ HybrisWristGestureAdaptor::HybrisWristGestureAdaptor(const QString& id) :
+     	sensordLogW() << "Path does not exists: " << powerStatePath;
+     	powerStatePath.clear();
+     }
++    setInterval(200, 0);
+ }
+ 
+ HybrisWristGestureAdaptor::~HybrisWristGestureAdaptor()
+-- 
+2.26.0
+
